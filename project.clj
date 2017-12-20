@@ -101,7 +101,6 @@
   :java-source-paths ["src/riemann/"]
   :java-source-path "src/riemann/"
 ;  :aot [riemann.bin]
-  :main riemann.bin
   :codox {:output-path "site/api"
           :source-uri "https://github.com/riemann/riemann/blob/{version}/{filepath}#L{line}"
           :metadata {:doc/format :markdown}}

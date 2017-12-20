@@ -8,8 +8,7 @@
             [clojure.test.junit :refer [with-junit-output]]
             [cemerick.pomegranate :as pom]
             [clojure.java.io :as io]
-            [clojure.tools.logging :refer :all])
-  (:gen-class :name riemann.bin))
+            [clojure.tools.logging :refer :all]))
 
 (def config-file
   "The configuration file loaded by the bin tool"
