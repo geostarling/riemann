@@ -8,7 +8,8 @@
             [clojure.test.junit :refer [with-junit-output]]
             [cemerick.pomegranate :as pom]
             [clojure.java.io :as io]
-            [clojure.tools.logging :refer :all]))
+            [clojure.tools.logging :refer :all])
+  (:gen-class :name riemann.bin))
 
 (def config-file
   "The configuration file loaded by the bin tool"
@@ -21,13 +22,7 @@
   (info "Loading" (-> file io/file .getCanonicalPath))
   (assert (deliver config-file file)
           (str "Config file already set to " (pr-str @config-file)
-               "--can't change it to " (pr-str file)))
-  (let [dir (-> file
-                io/file
-                .getCanonicalPath
-                io/file
-                .getParent)]
-    (pom/add-classpath dir)))
+               "--can't change it to " (pr-str file))))
 
 (def reload-lock (Object.))
 
