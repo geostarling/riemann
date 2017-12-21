@@ -22,13 +22,7 @@
   (info "Loading" (-> file io/file .getCanonicalPath))
   (assert (deliver config-file file)
           (str "Config file already set to " (pr-str @config-file)
-               "--can't change it to " (pr-str file)))
-  (let [dir (-> file
-                io/file
-                .getCanonicalPath
-                io/file
-                .getParent)]
-    (pom/add-classpath dir)))
+               "--can't change it to " (pr-str file))))
 
 (def reload-lock (Object.))
 
